@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)file:///C:/Users/dell/Desktop/atharv_maske/AtharvMaske.html#projects -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atharv Vasant Maske | Portfolio</title>
+
+<link href="./Atharv Vasant Maske _ Portfolio_files/css2" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#050816;
+  --card:#0f172a;
+  --accent:#6366f1;
+  --accent2:#8b5cf6;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ===== Animated Gradient Background ===== */
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,var(--accent),transparent);
+  top:-200px;
+  left:-200px;
+  filter:blur(120px);
+  opacity:0.3;
+  animation:float 12s ease-in-out infinite alternate;
+  z-index:-1;
+}
+
+@keyframes float{
+  from{transform:translateY(0);}
+  to{transform:translateY(60px);}
+}
+
+/* ===== Navbar ===== */
+nav{
+  position:fixed;
+  width:100%;
+  padding:20px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(20px);
+  background:rgba(0,0,0,0.4);
+  z-index:1000;
+}
+
+nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--muted);
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+/* ===== Sections ===== */
+section{
+  padding:160px 10%;
+}
+
+h1{
+  font-size:56px;
+  font-weight:800;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+p{
+  margin-top:20px;
+  color:var(--muted);
+  max-width:700px;
+  line-height:1.7;
+}
+
+/* ===== Projects Grid ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.6);
+}
+
+.thumbnail{
+  height:180px;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  font-size:20px;
+}
+
+.card-content{
+  padding:25px;
+}
+
+.card-content p{
+  font-size:14px;
+}
+
+/* ===== MODAL ===== */
+.project-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(8px);
+  display:none;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:120px;
+  z-index:9999;
+}
+
+.project-modal.active{
+  display:flex;
+}
+
+.modal-content{
+  width:90%;
+  max-width:900px;
+  background:var(--card);
+  border-radius:20px;
+  padding:40px;
+  position:relative;
+  animation:fadeUp 0.4s ease;
+  max-height:80vh;
+  overflow-y:auto;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.close-btn{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:28px;
+  cursor:pointer;
+  color:var(--muted);
+  transition:0.3s;
+}
+
+.close-btn:hover{
+  color:white;
+  transform:rotate(90deg);
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  h1{font-size:38px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div><strong>Atharv.</strong></div>
+  <div>
+    <a href="file:///C:/Users/dell/Desktop/atharv_maske/AtharvMaske.html#about">About</a>
+    <a href="file:///C:/Users/dell/Desktop/atharv_maske/AtharvMaske.html#projects">Projects</a>
+  </div>
+</nav>
+
+<section id="about">
+  <h1>
+    Atharv Vasant Maske <br>
+    <span class="gradient">UI/UX Designer &amp; Engineering Student</span>
+  </h1>
+  <p>
+    I focus 60% on design and 40% on development. I build structured,
+    visually strong digital experiences that feel intentional and consistent.
+  </p>
+</section>
+
+<section id="projects">
+  <h1>Projects</h1>
+
+  <div class="projects">
+
+    <div class="card" onclick="openProject(&#39;natural&#39;)">
+      <div class="thumbnail">Natural Breath</div>
+      <div class="card-content">
+        <p>Plants advertisement concept focused on calm green branding.</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="openProject(&#39;juicy&#39;)">
+      <div class="thumbnail">Juicy Drink</div>
+      <div class="card-content">
+        <p>High impact beverage campaign using bold colors.</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="openProject(&#39;coffee&#39;)">
+      <div class="thumbnail">Coffee Ad</div>
+      <div class="card-content">
+        <p>Premium coffee branding with warm tone visuals.</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="openProject(&#39;neurowave&#39;)">
+      <div class="thumbnail">Neurowave</div>
+      <div class="card-content">
+        <p>AI inspired SaaS website UI concept.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="project-modal" id="projectModal" onclick="outsideClick(event)">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeProject()">✕</span>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById("projectModal");
+const modalBody = document.getElementById("modalBody");
+
+function openProject(project){
+  document.body.style.overflow="hidden";
+  modal.classList.add("active");
+
+  if(project==="natural"){
+    modalBody.innerHTML=`
+      <h2>Natural Breath</h2>
+      <p>This plant advertisement concept focused on freshness and sustainability.
+      I used soft green gradients and clean layout spacing to communicate calmness
+      and purity.</p>`;
+  }
+
+  if(project==="juicy"){
+    modalBody.innerHTML=`
+      <h2>Juicy Drink Advertisement</h2>
+      <p>A bold beverage campaign designed to attract attention quickly.
+      Bright orange tones and product centric layout improved visual hierarchy.</p>`;
+  }
+
+  if(project==="coffee"){
+    modalBody.innerHTML=`
+      <h2>Coffee Advertisement</h2>
+      <p>Warm brown tones and structured typography were used to create
+      a premium café feeling.</p>`;
+  }
+
+  if(project==="neurowave"){
+    modalBody.innerHTML=`
+      <h2>Neurowave</h2>
+      <p>An AI inspired digital marketing website UI built with strong
+      gradient based branding and modern layout structure.</p>`;
+  }
+}
+
+function closeProject(){
+  modal.classList.remove("active");
+  document.body.style.overflow="auto";
+}
+
+function outsideClick(e){
+  if(e.target===modal){
+    closeProject();
+  }
+}
+
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){
+    closeProject();
+  }
+});
+</script>
+
+
+</body></html>
