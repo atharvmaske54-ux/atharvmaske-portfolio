@@ -1,0 +1,10 @@
+# Root Level ignores
+node_modules/
+.env
+.DS_Store
+*.mp4
+
+# Frontend ignores
+frontend/node_modules/
+frontend/.env
+frontend/.env
